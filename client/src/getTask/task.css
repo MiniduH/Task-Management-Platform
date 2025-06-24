@@ -1,0 +1,29 @@
+.taskTable{
+    width: 100%;
+    margin-top: 30px;
+    background-color: white;
+}
+
+.task{
+    width: 50%;
+    margin: 50px auto;
+    background-color: floralwhite;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 1 1 8px rgba(0, 0, 0, 0.065);   
+}
+
+.taskTable thead th {
+    padding: 10px;
+    text-align: center;
+
+}
+
+.taskTable tbody td {
+    padding: 5px;
+    text-align: center;
+}
+
+.editButtons button {
+    margin: 0 10px;
+}

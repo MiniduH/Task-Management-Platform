@@ -28,11 +28,11 @@ export const getAllTasks = async (req, res) => {
 export const updateTask = async (req, res) => {
     try{
     const id = req.params.id;
-    const taskExsist = await User.findById(id);
+    const taskExsist = await Task.findById(id);
         if(!taskExsist){
-            return res.status(404).json({ message: "User not found" });
+            return res.status(404).json({ message: "Task not found" });
         }
-        const updatedTask = await User.findByIdAndUpdate(id, req.body, { 
+        const updatedTask = await Task.findByIdAndUpdate(id, req.body, { 
             new: true, });
         res.status(200).json(updatedTask);
     } catch (error) {
@@ -44,13 +44,26 @@ export const updateTask = async (req, res) => {
 export const deleteTask = async (req, res) => {
     try{
         const id = req.params.id;
-        const taskExsist = await User.findById(id);
-            if(!taskExsist){
-                return res.status(404).json({ message: "User not found" });
-            }
-            await User.findByIdAndDelete(id);
-            res.status(200).json({ message: "Task deleted successfully" });
+        const taskExsist = await Task.findById(id);
+        if(!taskExsist){
+            return res.status(404).json({ message: "Task not found" });
+        }
+        await Task.findByIdAndDelete(id); 
+        res.status(200).json({ message: "Task deleted successfully" });
         } catch (error) {
             res.status(400).json({ message: error.message });
         }
+}
+
+export const getTaskById = async (req, res) => {
+    try{
+        const id = req.params.id;
+        const taskExsist = await Task.findById(id);
+        if(!taskExsist){
+            return res.status(404).json({ message: "Task not found" });
+        }
+        res.status(200).json(taskExsist);
+    }catch (error) {
+        res.status(400).json({ message: error.message });
+    }
 }

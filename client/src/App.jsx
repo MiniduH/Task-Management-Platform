@@ -1,15 +1,31 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Task from './getTask/task.jsx'
+import AddTask from './addTask/addTask.jsx'
+import UpdateTask from './updateTask/updateTask.jsx'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const router = createBrowserRouter([
+    {
+      path:"/",
+      element : <Task />,
+      },
+      {
+        path:"/add",
+        element : <AddTask />,
+        },
+        {
+          path:"/update/:id",
+          element : <UpdateTask />,
+          },
+
+  ]);
 
   return (
     <>
-      <div>
-        
+      <div className='app'>
+        <RouterProvider router={router} ></RouterProvider>
       </div>
     </>
   )
