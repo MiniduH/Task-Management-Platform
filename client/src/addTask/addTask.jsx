@@ -34,8 +34,8 @@ const submitForm = async (e) => {
         <Link to='/' type="button" className="btn btn-primary">Back</Link>
         <form className='taskForm' onSubmit={submitForm}>
             <div>
-            <label htmlFor="taskInput">Task</label>
-            <input type="text" className="form-control" placeholder="Enter task" id='taskInput' onChange={inputHandler} name='taskInput' />
+            <label htmlFor="task">Task</label>
+            <input type="text" className="form-control" placeholder="Enter task" id='task' onChange={inputHandler} name='task' />
             </div>
             <button type="submit" className="btn btn-success">Submit</button>
         </form>
